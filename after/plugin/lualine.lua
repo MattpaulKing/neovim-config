@@ -1,8 +1,8 @@
 require('lualine').setup({
-  sections = {
-    lualine_c = {
-      {'filename',
-        path = 2
+  options = {
+    sections = {
+      lualine_c = {
+        { 'filename', path = 2 }
       }
     }
   }
