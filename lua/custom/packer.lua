@@ -5,15 +5,12 @@
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-
   use('nvim-lua/plenary.nvim')
   use('nvim-telescope/telescope.nvim')
   use('nvim-tree/nvim-web-devicons')
   use("folke/tokyonight.nvim", { lazy = false, priority = 1000 })
---  use("rebelot/kanagawa.nvim")
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use{ 'theprimeagen/harpoon',
-    branch = "harpoon2",
     requires = {{ "nvim-lua/plenary.nvim"}}
   }
   use('mbbill/undotree')
@@ -25,13 +22,16 @@ return require('packer').startup(function(use)
     	{'neovim/nvim-lspconfig'},             -- Required
     	{'williamboman/mason.nvim'},           -- Optional
     	{'williamboman/mason-lspconfig.nvim'}, -- Optional
-
     	-- Autocompletion
     	{'hrsh7th/nvim-cmp'},     -- Required
     	{'hrsh7th/cmp-nvim-lsp'}, -- Required
     	{'L3MON4D3/LuaSnip'},     -- Required
+      {"rafamadriz/friendly-snippets"},
     }
   }
+  use { "rafamadriz/friendly-snippets", requires = {
+    {'L3MON4D3/LuaSnip'},     -- Required
+  }}
   use {
 	  "windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
@@ -57,9 +57,9 @@ return require('packer').startup(function(use)
   use({ "MaximilianLloyd/ascii.nvim", requires = {
 	"MunifTanjim/nui.nvim"
 } })
-  use {"folke/noice.nvim",
-    requires = {"MunifTanjim/nui.nvim"}
-  }
+  -- use {"folke/noice.nvim",
+  --   requires = {"MunifTanjim/nui.nvim"}
+  -- }
   use {"tpope/vim-dadbod"}
   use { 'kristijanhusak/vim-dadbod-completion'}
   use {"kristijanhusak/vim-dadbod-ui",
@@ -74,5 +74,11 @@ return require('packer').startup(function(use)
     init = function ()
       vim.g.db_ui_use_nerd_fonts = 1
     end,
-}
+  }
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+  }
 end)

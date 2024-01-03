@@ -1,4 +1,4 @@
---[
+
 require('tokyonight').setup({
 transparent = true,
 style = "night",
@@ -34,11 +34,6 @@ fg = c.bg_dark,
 
 end,
 })
---]
-
--- require("kanagawa").setup({
---   transparent = true,
--- })
 
 function ColorMyPencils(color)
 	color = color or "tokyonight"
